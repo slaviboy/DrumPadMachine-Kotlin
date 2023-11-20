@@ -1,7 +1,7 @@
-# DrumPadMachine-Kotlin
+# DrumPadMachine-Resources
 
 
-### How to determine download the wav files hosted on original app
+### How to download the wav files(aa *zip archives), convers, icon, audio previewes hosted on original app
 
 1) Open CMD, and type 
     > ipconfig
@@ -34,21 +34,9 @@ https://www.charlesproxy.com/
 https://cloudflare-content-dpm.easybrain.com/shared/files/dpm/presets/id/2.zip
 ```
 
-13) Run following script in PowerShell to download all files:
+13) Run following script in PowerShell to download all files (right button `Run with PowerShell`)
+  > powershell_scripts/open_audio_zip_in_firefox_and_download.ps1
 
-```
-# This script will open all audio *zip archive links in Firefox browser, which will download them in Download folder
-$firefoxPath = "C:\Program Files\Mozilla Firefox\firefox.exe"
+14) To download all covers, icons and audio previews, run following PowerShell script (right button `Run with PowerShell`)
+  > powershell_scripts/download_covers_icons_and_audio_previews.ps1
 
-for ($i = 0; $i -le 500; $i++) {
-    $url = "https://cloudflare-content-dpm.easybrain.com/shared/files/dpm/presets/id/$i.zip"
-
-    try {
-        # Attempt to open URL in Firefox
-        Start-Process $firefoxPath -ArgumentList $url -ErrorAction Stop
-        Write-Host "Opened in Firefox: $url"
-    } catch {
-        Write-Host "File not found or error opening URL: $url"
-    }
-}
-```
