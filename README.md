@@ -37,15 +37,18 @@ https://cloudflare-content-dpm.easybrain.com/shared/files/dpm/presets/id/2.zip
 13) Run following script in PowerShell to download all files:
 
 ```
-for ($i = 0; $i -le 374; $i++) {
+# This script will open all audio *zip archive links in Firefox browser, which will download them in Download folder
+$firefoxPath = "C:\Program Files\Mozilla Firefox\firefox.exe"
+
+for ($i = 0; $i -le 500; $i++) {
     $url = "https://cloudflare-content-dpm.easybrain.com/shared/files/dpm/presets/id/$i.zip"
-    $outputFile = "C:\tmp\$i.zip"
 
     try {
-        Invoke-WebRequest -Uri $url -OutFile $outputFile -ErrorAction Stop
-        Write-Host "File downloaded: $outputFile"
+        # Attempt to open URL in Firefox
+        Start-Process $firefoxPath -ArgumentList $url -ErrorAction Stop
+        Write-Host "Opened in Firefox: $url"
     } catch {
-        Write-Host "File not found: $url"
+        Write-Host "File not found or error opening URL: $url"
     }
 }
 ```
