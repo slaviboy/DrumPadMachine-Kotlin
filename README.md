@@ -40,3 +40,7 @@ https://cloudflare-content-dpm.easybrain.com/shared/files/dpm/presets/id/2.zip
 14) To download all covers, icons and audio previews, run following PowerShell script (right button `Run with PowerShell`)
   > powershell_scripts/download_covers_icons_and_audio_previews.ps1
 
+-----
+
+Regex expression to select all lines that matche `"number": {` in VSCode, example  `"14": {`, `"15": {` etc.
+> `^.*"\d+":.*$`
