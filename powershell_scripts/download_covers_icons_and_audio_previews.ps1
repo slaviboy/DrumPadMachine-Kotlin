@@ -22,25 +22,25 @@ foreach ($category in $jsonContent.categories) {
     # Loop through presets
     foreach ($preset in $jsonContent.presets.PSObject.Properties) {
         $presetData = $preset.Value
-        $name = $presetData.name.ToLower() -replace '\s', '_'
+        $id = $presetData.id
 
         # Check if icon exists and download it
         if ($presetData.icon) {
-            $outputFileName = Join-Path $outputDirectory "\cover_icons\$name.jpg"
+            $outputFileName = Join-Path $outputDirectory "\cover_icons\$id.jpg"
             Download-File -url $presetData.icon -outputPath $outputFileName
             Write-Host "Downloaded: $($presetData.icon) to $($outputFileName)"
         }
 
         # Check if imagePreview1 exists and download it
         if ($presetData.imagePreview1) {
-            $outputFileName = Join-Path $outputDirectory "\covers\$name.jpg"
+            $outputFileName = Join-Path $outputDirectory "\covers\$id.jpg"
             Download-File -url $presetData.imagePreview1 -outputPath $outputFileName
             Write-Host "Downloaded: $($presetData.imagePreview1) to $($outputFileName)"
         }
 
         # Check if audioPreview1URL exists and download it
         if ($presetData.audioPreview1URL) {
-            $outputFileName = Join-Path $outputDirectory "\audio_previews\$name.mp3"
+            $outputFileName = Join-Path $outputDirectory "\audio_previews\$id.mp3"
             Download-File -url $presetData.audioPreview1URL -outputPath $outputFileName
             Write-Host "Downloaded: $($presetData.audioPreview1URL) to $($outputFileName)"
         }
