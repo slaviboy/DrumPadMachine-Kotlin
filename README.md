@@ -7,7 +7,8 @@
     > ipconfig
 2) Copy the Wi-Fi IPv4 address, for example `192.168.100.15`
 
-3) Open iOS Wi-Fi settings, and add proxy for the current network:
+3) Open iOS Wi-Fi settings, and add Manual proxy for the current network:
+   (Settings -> Wi-Fi -> Edit -> (i) -> Configure Proxy -> Manual)
    - ip: `192.168.100.15` (copied IPv4 address)
    - port: `8888` (default Charles port)
 
@@ -30,10 +31,14 @@ https://www.charlesproxy.com/
 11) Open Charles -> (check now the revealed urls)
 
 12) As of no 11/20/2023, the url for wav audio files is:
-```
-https://cloudflare-content-dpm.easybrain.com/shared/files/dpm/presets/id/2.zip
-```
-
+    URL for audio ZIP archives:
+    ```
+    https://cloudflare-content-dpm.easybrain.com/shared/files/dpm/presets/id/2.zip
+    ```
+    URL for configs:
+    ```
+        https://cloudflare-content-dpm.easybrain.com/ios/files/dpm/2.15.0/presets_list_info.json
+    ```
 13) Run following script in PowerShell to download all files (right button `Run with PowerShell`)
   > powershell_scripts/open_audio_zip_in_firefox_and_download.ps1
 
