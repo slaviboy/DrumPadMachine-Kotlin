@@ -49,6 +49,7 @@ https://www.charlesproxy.com/
 
 Regex expression to select all lines that matche `"number": {` in VSCode, example  `"14": {`, `"15": {` etc.
 > `^.*"\d+":.*$`
+> `^.*"icon": "http.*$`
 
 -----
 
